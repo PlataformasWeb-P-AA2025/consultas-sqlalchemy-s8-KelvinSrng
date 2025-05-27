@@ -1,6 +1,3 @@
-# consulta01.py
-
-# Consulta 01
 # Obtener las entregas de todos los estudiantes que pertenecen al departamento de Arte.
 # Presentar: nombre de la tarea, nombre del estudiante, calificación, 
 # nombre del instructor y nombre del departamento.
@@ -10,12 +7,12 @@ from sqlalchemy.orm import sessionmaker
 from clases import Base, Entrega, Estudiante, Tarea, Curso, Instructor, Departamento
 from config import cadena_base_datos
 
-# Crear engine y sesión
+# Crear engine y sesion
 engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Realizamos la consulta con múltiples joins
+# Realizamos la consulta con multiples joins
 resultados = session.query(
     Tarea.titulo.label("nombre_tarea"),
     Estudiante.nombre.label("nombre_estudiante"),
